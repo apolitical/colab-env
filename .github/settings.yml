@@ -1,0 +1,80 @@
+repository:
+  has_issues: true
+  has_wiki: false
+  has_downloads: false
+  default_branch: master
+  allow_squash_merge: true
+  allow_merge_commit: true
+  allow_rebase_merge: false
+
+# Labels: define labels for Issues and Pull Requests
+labels:
+  - name: "epic :book:"
+    color: 19a9b7
+  - name: "good first issue :baby_bottle:"
+    color: 7057ff
+  - name: "bug :bug:"
+    color: ee0701
+  - name: "duplicate :cat::cat:"
+    color: cccccc
+  - name: "enhancement :tada:"
+    color: 84b6eb
+  - name: "critical :warning:"
+    color: ff0000
+  - name: "help wanted :sos:"
+    color: 33aa3f
+  - name: "security :key:"
+    color: ff69b4
+  - name: "question :grey_question:"
+    color: cc317c
+  - name: "wontfix :no_good_woman:"
+    color: e6e6e6
+  - name: "dependent :baby_symbol:"
+    color: f9d0c4
+  - name: "blocked :stop_sign:"
+    color: 006b75
+  - name: "size 1 :mouse:"
+    color: c9e8fa
+    oldname: "small :mouse:"
+  - name: "size 2 :hamster:"
+    color: 33c5f4
+  - name: "size 3 :rabbit:"
+    color: 1570b6
+  - name: "size 5 :cat:"
+    color: 93c854
+  - name: "size 8 :dog:"
+    color: 005b2f
+    oldname: "medium :horse:"
+  - name: "size 13 :pig:"
+    color: f7ee64
+  - name: "size 25 :cow:"
+    color: f89c21
+  - name: "size 50 :elephant:"
+    color: d81f25
+    oldname: "large :elephant:"
+  - name: "size 100 :dragon:"
+    color: ed3b93
+  - name: "addition :bangbang:"
+    color: f48a11
+  - name: "refactor :construction:"
+    color: 0e8a16
+  - name: "design :art:"
+    color: f4cd1f
+    
+branches:
+  - name: master
+    protection:
+      required_pull_request_reviews:
+        required_approving_review_count: 1
+        dismiss_stale_reviews: true
+        require_code_owner_reviews: true
+        dismissal_restrictions:
+          users: []
+          teams: []
+      required_status_checks:
+        strict: true
+        contexts: ["DEP", "WIP", "ci/gitlab/gitlab.com"]
+      enforce_admins: true
+      restrictions:
+        users: []
+        teams: []
