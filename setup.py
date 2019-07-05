@@ -9,6 +9,7 @@ try:
 except ImportError:
     from distutils.core import setup
 
+
 def format_requirement(requirement_string):
     """
     Format a [packages] line from the Pipfile as needed for the
@@ -19,10 +20,11 @@ def format_requirement(requirement_string):
     version_info = "=".join(requirement_string.split("=")[1:])
 
     rs = pkg_name + version_info
-    rs = "".join(rs.split('"')) # remove quotation marks
-    rs = "".join(rs.split(" ")) # strip out whitespace
+    rs = "".join(rs.split('"'))  # remove quotation marks
+    rs = "".join(rs.split(" "))  # strip out whitespace
 
     return rs
+
 
 def get_requirements():
     """
@@ -36,6 +38,7 @@ def get_requirements():
     requirements = [x for x in requirements_body.split("\n") if len(x) > 0]
 
     return [format_requirement(req) for req in requirements]
+
 
 def get_version(package_name):
     """
@@ -64,7 +67,7 @@ def get_version(package_name):
         )
 
     with open(initfile_path) as pyinit:
-        pyinit_cont = pyinit.read().split('\n')
+        pyinit_cont = pyinit.read().split("\n")
 
     processed_contents = [
         l.split('"')[1] for l in pyinit_cont if l.startswith("__version__")
@@ -78,14 +81,15 @@ def get_version(package_name):
 
     return pkg_version
 
+
 def get_download_url(module_name, package_name):
     """
     Returns the download URL with the correct version
     """
     return "https://github.com/apolitical/{m}/archive/v{v}.tar.gz".format(
-        m = module_name,
-        v = get_version(package_name)
+        m=module_name, v=get_version(package_name)
     )
+
 
 def get_long_description_from_README():
     """
@@ -96,15 +100,16 @@ def get_long_description_from_README():
         long_description = file_object.read()
     return long_description
 
+
 setup(
-    name = MODULE_NAME,
-    version = get_version(PACKAGE_NAME),
-    install_requires = get_requirements(),
-    download_url = get_download_url(MODULE_NAME, PACKAGE_NAME),
-    packages = [PACKAGE_NAME],
-    description = SHORT_DESCRIPTION,
-    long_description = get_long_description_from_README(),
+    name=MODULE_NAME,
+    version=get_version(PACKAGE_NAME),
+    install_requires=get_requirements(),
+    download_url=get_download_url(MODULE_NAME, PACKAGE_NAME),
+    packages=[PACKAGE_NAME],
+    description=SHORT_DESCRIPTION,
+    long_description=get_long_description_from_README(),
     long_description_content_type="text/markdown",
-    author = "PaddyAlton",
-    author_email = "paddy.alton@apolitical.co"
+    author="PaddyAlton",
+    author_email="paddy.alton@apolitical.co",
 )
