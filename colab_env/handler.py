@@ -165,7 +165,7 @@ class ColabEnvHandler:
                 if key is not None:
                     my_vars[key] = value
 
-        current_value = my_vars.pop(envname)
+        current_value = my_vars.pop(envname, None)
 
         if current_value is None:
             return  # do nothing if not set
