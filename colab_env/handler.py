@@ -55,7 +55,7 @@ class ColabEnvHandler:
 
         """
 
-        check = load_dotenv(self.envpath)
+        check = load_dotenv(self.envpath, override=True)
 
         return check
 
