@@ -38,6 +38,11 @@ from colab_env import envvar_handler
 
 ... and then use `envvar_handler`'s `add_env` and `del_env` methods to add/modify and delete environment variables respectively from `vars.env`.
 
+Take it for a test-drive
+------------------------
+
+Simply open up `colab-env/colab_env_testbed.ipynb` in Google Colab and try it out!
+
 Contributors
 ------------
 

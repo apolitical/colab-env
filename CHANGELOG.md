@@ -17,6 +17,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
  - N/A
 
-## [0.0.1] - 2019-07-05
+## [0.2.0] - 2019-07-05
+
+### Added
+
+- colab-env-testbed.ipynb (a Colab notebook for demonstrating how it works!)
+
+## [0.1.0] - 2019-07-05
 
 Initial version. Handles environment variables in Google Colab via a Google Drive file called `vars.env`.
