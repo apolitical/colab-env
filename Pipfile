@@ -1,0 +1,16 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[scripts]
+
+[dev-packages]
+pytest = ">=3.8.0, <4.0"
+
+[requires]
+python_version = "3"
+
+[packages]
+python-dotenv = ">=0.10.0, <1.0"
