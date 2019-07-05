@@ -1,6 +1,6 @@
 # __init__.py
 
-__version__ = "0.1.1"
+__version__ = "0.1.2"
 
 from colab_env.handler import ColabEnvHandler
 
