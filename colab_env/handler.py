@@ -165,7 +165,7 @@ class ColabEnvHandler:
         current_value = my_vars.pop(envname)
 
         if current_value is None:
-            return # do nothing if not set
+            return  # do nothing if not set
 
         new_lines = [f"{k} = {v}" for k, v in my_vars.items()]
 
