@@ -3,7 +3,8 @@ try:
 except ImportError:
     raise ImportError("colab-env only works in a Google Colab notebook")
 
-from os import path
+import os
+
 from dotenv import load_dotenv
 
 
@@ -37,7 +38,7 @@ class ColabEnvHandler:
 
         drive.mount("/content/gdrive", force_remount=force_remount)
 
-        if path.isfile(self.envpath):
+        if os.path.isfile(self.envpath):
             self.envload()
         else:
             self.create_vars_dot_env()
@@ -136,10 +137,12 @@ class ColabEnvHandler:
         else:
             return  # if overwrite = False and current_value is not None
 
-        new_lines = [f"{k} = {v}" for k, v in my_vars.items()]
+        new_lines = [f"{k} = {v}\n" for k, v in my_vars.items()]
 
         with open(self.envpath, "w") as envfile:
             envfile.writelines(new_lines)
+
+        os.environ[envname] = envval
 
     def del_env(self, envname):
 
@@ -167,7 +170,9 @@ class ColabEnvHandler:
         if current_value is None:
             return  # do nothing if not set
 
-        new_lines = [f"{k} = {v}" for k, v in my_vars.items()]
+        new_lines = [f"{k} = {v}\n" for k, v in my_vars.items()]
 
         with open(self.envpath, "w") as envfile:
             envfile.writelines(new_lines)
+
+        os.environ.unsetenv(envname)
